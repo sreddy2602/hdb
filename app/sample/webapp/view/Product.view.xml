@@ -1,0 +1,16 @@
+<mvc:View controllerName="sample.controller.Product"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="productPage" title="Lens Mart - Products">
+        <content>
+            <VBox id="_IDGenVBox2" class="sapUiMediumMargin sapUiLargePadding">
+                <Title id="_IDGenTitle1" text="Our Spectacles" level="H2"/>
+                <List id="_IDGenList">
+                    <StandardListItem id="_IDGenStandardListItem" title="Classic Black Frame" description="Brand: Spectra | Price: ₹1999"/>
+                    <StandardListItem id="_IDGenStandardListItem1" title="Retro Round Glasses" description="Brand: VisionX | Price: ₹2499"/>
+                    <StandardListItem id="_IDGenStandardListItem2" title="Blue Light Blocker" description="Brand: EyeGuard | Price: ₹2799"/>
+                </List>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

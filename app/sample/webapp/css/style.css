@@ -1,0 +1,11 @@
+/* Enter your custom styles here */
+.homeBackground {
+    background-color: lightsalmon !important;
+}
+
+.signupBox {
+    background: lightpink;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 2rem;
+}
