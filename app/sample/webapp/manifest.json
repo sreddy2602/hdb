@@ -112,6 +112,27 @@
           "target": [
             "TargetLogin"
           ]
+        },
+        {
+          "name": "RouteDashboard",
+          "pattern": "Dashboard",
+          "target": [
+            "TargetDashboard"
+          ]
+        },
+        {
+          "name": "RouteCart",
+          "pattern": "Cart",
+          "target": [
+            "TargetCart"
+          ]
+        },
+        {
+          "name": "RouteOrder",
+          "pattern": "Order",
+          "target": [
+            "TargetOrder"
+          ]
         }
       ],
       "targets": {
@@ -126,6 +147,18 @@
         "TargetLogin": {
           "id": "Login",
           "name": "Login"
+        },
+        "TargetDashboard": {
+          "id": "Dashboard",
+          "name": "Dashboard"
+        },
+        "TargetCart": {
+          "id": "Cart",
+          "name": "Cart"
+        },
+        "TargetOrder": {
+          "id": "Order",
+          "name": "Order"
         }
       }
     },
