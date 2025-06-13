@@ -105,6 +105,13 @@
           "target": [
             "TargetSignup"
           ]
+        },
+        {
+          "name": "RouteLogin",
+          "pattern": "Login",
+          "target": [
+            "TargetLogin"
+          ]
         }
       ],
       "targets": {
@@ -115,6 +122,10 @@
         "TargetSignup": {
           "id": "Signup",
           "name": "Signup"
+        },
+        "TargetLogin": {
+          "id": "Login",
+          "name": "Login"
         }
       }
     },

@@ -1,0 +1,36 @@
+<mvc:View controllerName="sample.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="dashboardPage" title="Products" class="dashboardBackground">
+        <!-- Navigation Bar -->
+        <Bar id="userNavbar" class="sapUiTinyMarginBottom">
+            <contentLeft>
+                <Button id="productHomeButton" icon="sap-icon://home" text="Home" type="Transparent" press="onHome"/>
+                <Button id="productCartButton" icon="sap-icon://cart" text="Cart" type="Transparent" press="onCart"/>
+                <Button id="productOrderButton" icon="sap-icon://order-status" text="Orders" type="Transparent" press="onOrder"/>
+            </contentLeft>
+            <contentRight>
+                <Button id="logoutButton" icon="sap-icon://log" text="Logout" type="Reject" press="onLogout"/>
+            </contentRight>
+        </Bar>
+
+        <!-- Filters -->
+        <VBox class="sapUiSmallMarginBottom">
+            <HBox>
+                <Label text="Search:"/>
+                <Input id="productSearch" width="200px" liveChange="onSearch"/>
+                <Label text="Category:" class="sapUiTinyMarginBegin"/>
+                <Select id="productCategory" width="150px" change="onCategoryChange"/>
+            </HBox>
+        </VBox>
+
+        <!-- Product Grid -->
+        <VBox id="productHomeBody">
+            <Grid defaultSpan="L3 M6 S12" id="productGrid">
+                <items>
+                    <!-- Product items will be bound here -->
+                </items>
+            </Grid>
+        </VBox>
+    </Page>
+</mvc:View>

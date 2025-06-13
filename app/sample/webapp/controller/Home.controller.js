@@ -5,7 +5,7 @@ sap.ui.define([
     return Controller.extend("sample.controller.Home", {
         onLoginPress: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.navTo("RouteHome"); // stays on home or navigates to login
+            oRouter.navTo("RouteLogin"); // navigate to login page
         },
         onSignupPress: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
