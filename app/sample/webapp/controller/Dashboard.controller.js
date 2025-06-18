@@ -6,33 +6,20 @@ sap.ui.define([
     "use strict";
     return Controller.extend("sample.controller.Dashboard", {
         onInit: function() {
-            this.loadProducts();
-        },
-
-        loadProducts: function() {
+            // Load products from local JSON file
+            var oModel = new JSONModel();
             var oView = this.getView();
-            fetch("http://localhost:8000/home")
-                .then(function(response) {
-                    if (!response.ok) throw new Error("Failed to fetch products");
-                    return response.json();
-                })
-                .then(function(data) {
-                    // Assume data is an array of products
-                    var oModel = new JSONModel({
-                        products: data,
-                        filteredProducts: data
-                    });
-                    oView.setModel(oModel, "products");
-                    this.populateCategories(data);
-                }.bind(this))
-                .catch(function(err) {
-                    MessageBox.error("Could not load products: " + err.message);
-                });
+            oModel.loadData("model/products.json", null, false);
+            oView.setModel(oModel, "products");
+            // Set filteredProducts for gallery binding
+            oModel.setProperty("/filteredProducts", oModel.getProperty("/products"));
+            this.populateCategories(oModel.getProperty("/products"));
         },
 
         populateCategories: function(data) {
             var oView = this.getView();
             var oSelect = oView.byId("productCategorySelect");
+            if (!oSelect) return;
             oSelect.removeAllItems();
             var categories = [];
             data.forEach(function(p) {
@@ -58,6 +45,20 @@ sap.ui.define([
             });
             oModel.setProperty("/filteredProducts", aFiltered);
         },
+        onAddToCart(oEvent) {
+            const oProduct = oEvent.getSource().getBindingContext("products").getObject();
+            const oCart = this.getOwnerComponent().getModel("cart");
+            const aItems = oCart.getProperty("/items");
+            if (aItems.length >= 5) {
+              return MessageToast.show("You can only add up to 5 items");
+            }
+            if (aItems.find(p => p.id === oProduct.id)) {
+              return MessageToast.show("Item already in cart");
+            }
+            aItems.push(oProduct);
+            oCart.setProperty("/items", aItems);
+            MessageToast.show("Added to cart");
+          },
 
         onCategoryChange: function() {
             // Reuse search logic to filter on category change
@@ -66,8 +67,13 @@ sap.ui.define([
 
         // Navigation handlers
         onHome: function() {
-            // Already on Dashboard; could reload data if needed
-            this.loadProducts();
+            // Reset filter
+            var oModel = this.getView().getModel("products");
+            oModel.setProperty("/filteredProducts", oModel.getProperty("/products"));
+            var oInput = this.getView().byId("productSearchInput");
+            if (oInput) oInput.setValue("");
+            var oSelect = this.getView().byId("productCategorySelect");
+            if (oSelect) oSelect.setSelectedKey("");
         },
         onCart: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -80,6 +86,28 @@ sap.ui.define([
         onLogout: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("RouteLogin");
-        }
+        },
+        onAddToCart: function(oEvent) {
+            var oSource = oEvent.getSource();
+            var oContext = oSource.getBindingContext("products");
+            var oProduct = oContext.getObject();
+        
+            // Add to cart model (local only)
+            var oCart = this.getOwnerComponent().getModel("cart");
+            var aItems = oCart.getProperty("/items") || [];
+            if (aItems.find(p => p.name === oProduct.name)) {
+                sap.m.MessageToast.show("Item already in cart");
+                return;
+            }
+            aItems.push(oProduct);
+            oCart.setProperty("/items", aItems);
+            sap.m.MessageToast.show("Added to cart");
+        
+            // Navigate to Cart page
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("Cart"); // Use the target name from your manifest.json
+        },
+
+        
     });
 });

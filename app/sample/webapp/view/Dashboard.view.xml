@@ -17,27 +17,26 @@
             </Bar>
 
             <!-- Filters -->
-            <HBox id="_IDGenHBox2" class="sapUiTinyMargin">
-                <Label id="_IDGenLabel" text="Search:"/>
+            <HBox id="dashboardFilters" class="sapUiTinyMargin">
+                <Label id="_IDGenLabel1" text="Search:"/>
                 <Input id="productSearchInput" width="200px" liveChange="onSearch"/>
-                <Label id="_IDGenLabel1" text="Category:" class="sapUiTinyMarginBegin"/>
+                <Label id="_IDGenLabel2" text="Category:" class="sapUiTinyMarginBegin"/>
                 <Select id="productCategorySelect" width="150px" change="onCategoryChange"/>
             </HBox>
 
-            <!-- Product Grid List -->
-            <f:GridList id="productHomeBody"
-                items="{products>/filteredProducts}"
-                growing="true"
-                growingScrollToLoad="true"
-                inset="false">
-                <f:items>
-                    <StandardListItem id="_IDGenStandardListItem3"
-                        title="{products>name}"
-                        description="{products>description}"
-                        icon="{products>image}"
-                        info="Price: ${products>price}"/>
-                </f:items>
-            </f:GridList>
+            <!-- Dynamic Images Gallery with Details and Add to Cart -->
+            <HBox id="productGallery" class="sapUiSmallMarginBottom" items="{products>/filteredProducts}">
+                <items>
+                    <VBox id="_IDGenVBox" class="sapUiSmallMargin">
+                        <Image id="_IDGenImage1" src="{products>image}" width="180px" height="180px" alt="{products>name}" />
+                        <Text id="_IDGenText" text="{products>name}" class="sapMTitle sapUiTinyMarginTop"/>
+                        <Text id="_IDGenText1" text="{products>description}" class="sapUiTinyMarginTop"/>
+                        <Text id="_IDGenText2" text="Price: ${products>price}" class="sapUiTinyMarginTop"/>
+                        <Text id="_IDGenText3" text="Category: {products>category}" class="sapUiTinyMarginTop"/>
+                        <Button id="_IDGenButton" text="Add to Cart" type="Emphasized" press="onAddToCart"/>
+                    </VBox>
+                </items>
+            </HBox>
         </content>
     </Page>
 </mvc:View>

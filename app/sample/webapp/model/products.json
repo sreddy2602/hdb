@@ -1,0 +1,49 @@
+{
+    "products": [
+      {
+        "name": "Classic Black Frame",
+        "description": "Unisex rectangular black acetate eyeglasses",
+        "price": "39.99",
+        "category": "Spectacles",
+        "image": "https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/black-blue-full-rim-rectangle-lenskart-air-memory-la-e16492-c1-eyeglasses_img_1564_02_02_2024.jpg"
+      },
+     
+      
+     
+      {
+        "name": "Kids' Colorful Frame",
+        "description": "Durable and colorful spectacles for children",
+        "price": "25.99",
+        "category": "Spectacles",
+        "image": "https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//h/i/blue-transparent-pink-purple-full-rim-round-kids--5-8-yrs--hooper-flexi-hooper-hp-e15083m-c3-eyeglasses_blue-transparent-pink-purple-full-rim-round-kids-(5-8-yrs)-hooper-flexi-hooper-hp-e15083m-c3-eyeglasses_g_8787_9_21_22_22_march23.jpg.jpg"
+      },
+      {
+        "name": "Cat Eye Women",
+        "description": "Fashion cat eye frame for women",
+        "price": "49.99",
+        "category": "Spectacles",
+        "image": "https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//j/o/john-jacobs-jj-e10227-c4-dup-eyeglasses_j_1502_1.jpg"
+      },
+      {
+        "name": "Transparent Frame",
+        "description": "Trendy transparent acetate eyeglasses",
+        "price": "42.90",
+        "category": "Spectacles",
+        "image": "https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e14271-c1-eyeglasses_J_2003.jpg"
+      },
+      {
+        "name": "Oversized Square",
+        "description": "Bold oversized square spectacles",
+        "price": "59.00",
+        "category": "Spectacles",
+        "image": "https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/peyush-bansal-shark-tank-navy-full-rim-wayfarer-lenskart-hustlr-lb-e14058-h-c34-eyeglasses_g_1238_09_11_2023.jpg"
+      },
+      {
+        "name": "Tortoise Shell Frame",
+        "description": "Classic tortoise shell pattern glasses",
+        "price": "48.00",
+        "category": "Spectacles",
+        "image": "https://cdn-images.farfetch-contents.com/19/41/63/85/19416385_43907555_1000.jpg"
+      }
+    ]
+  }

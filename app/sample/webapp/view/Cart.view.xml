@@ -1,0 +1,22 @@
+<mvc:View
+    controllerName="sample.controller.Cart"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="cartPage" title="Your Cart">
+        <content>
+            <List id="cartList" items="{cart>/items}">
+                <StandardListItem id="_IDGenStandardListItem4"
+                    title="{cart>name}"
+                    description="{cart>description}"
+                    icon="{cart>image}"
+                    info="Price: ${cart>price}"
+                    iconInset="false"
+                />
+            </List>
+            <Toolbar id="_IDGenToolbar">
+                <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                <Button id="_IDGenButton1" text="Checkout" type="Accept" press="onCheckout"/>
+            </Toolbar>
+        </content>
+    </Page>
+</mvc:View>
