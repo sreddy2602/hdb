@@ -1,0 +1,14 @@
+<mvc:View
+    controllerName="sample.controller.Pay"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="payPage" title="Payment">
+        <content>
+            <VBox id="_IDGenVBox6" class="sapUiLargeMargin">
+                <Text id="_IDGenText16" text="Proceed with your payment here." class="sapMTitle"/>
+                <!-- Add your payment form fields here -->
+                <Button id="_IDGenButton8" text="Pay Now" type="Accept" press="onPayNow"/>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

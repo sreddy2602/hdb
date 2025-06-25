@@ -5,17 +5,26 @@
     <Page id="cartPage" title="Your Cart">
         <content>
             <List id="cartList" items="{cart>/items}">
-                <StandardListItem id="_IDGenStandardListItem4"
-                    title="{cart>name}"
-                    description="{cart>description}"
-                    icon="{cart>image}"
-                    info="Price: ${cart>price}"
-                    iconInset="false"
-                />
+                <CustomListItem id="_IDGenCustomListItem1">
+                    <HBox id="_IDGenHBox2" alignItems="Center" justifyContent="Start">
+                        <Image id="_IDGenImage2" src="{cart>image}" width="48px" height="48px" />
+                        <VBox id="_IDGenVBox" class="sapUiSmallMarginBegin">
+                            <Text id="_IDGenText4" text="{cart>name}" class="sapMTitle"/>
+                            <Text id="_IDGenText5" text="{cart>description}" />
+                            <Text id="_IDGenText6" text="Unit Price: ${cart>price}" />
+                        </VBox>
+                        <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                        <Button id="_IDGenButton1" icon="sap-icon://less" press="onDecreaseQuantity" type="Transparent"/>
+                        <Text id="_IDGenText7" text="{cart>quantity}" width="2em" textAlign="Center"/>
+                        <Button id="_IDGenButton4" icon="sap-icon://add" press="onIncreaseQuantity" type="Transparent"/>
+                        <Button id="_IDGenButton5" icon="sap-icon://delete" type="Reject" press="onDeleteItem"/>
+                        <Text id="_IDGenText8" text="{= 'Total: $' + (Number(${cart>price}) * Number(${cart>quantity}))}" class="sapUiSmallMarginBegin"/>
+                    </HBox>
+                </CustomListItem>
             </List>
             <Toolbar id="_IDGenToolbar">
-                <ToolbarSpacer id="_IDGenToolbarSpacer"/>
-                <Button id="_IDGenButton1" text="Checkout" type="Accept" press="onCheckout"/>
+                <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+                <Button id="_IDGenButton6" text="Checkout" type="Accept" press="onCheckout"/>
             </Toolbar>
         </content>
     </Page>

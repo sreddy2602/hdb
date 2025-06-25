@@ -18,22 +18,30 @@
 
             <!-- Filters -->
             <HBox id="dashboardFilters" class="sapUiTinyMargin">
-                <Label id="_IDGenLabel1" text="Search:"/>
+                <Label id="_IDGenLabel" text="Search:"/>
                 <Input id="productSearchInput" width="200px" liveChange="onSearch"/>
-                <Label id="_IDGenLabel2" text="Category:" class="sapUiTinyMarginBegin"/>
+                <Label id="_IDGenLabel1" text="Category:" class="sapUiTinyMarginBegin"/>
                 <Select id="productCategorySelect" width="150px" change="onCategoryChange"/>
             </HBox>
 
-            <!-- Dynamic Images Gallery with Details and Add to Cart -->
+            <!-- Product Gallery -->
             <HBox id="productGallery" class="sapUiSmallMarginBottom" items="{products>/filteredProducts}">
                 <items>
-                    <VBox id="_IDGenVBox" class="sapUiSmallMargin">
+                    <VBox id="_IDGenVBox1" class="sapUiSmallMargin">
                         <Image id="_IDGenImage1" src="{products>image}" width="180px" height="180px" alt="{products>name}" />
                         <Text id="_IDGenText" text="{products>name}" class="sapMTitle sapUiTinyMarginTop"/>
                         <Text id="_IDGenText1" text="{products>description}" class="sapUiTinyMarginTop"/>
                         <Text id="_IDGenText2" text="Price: ${products>price}" class="sapUiTinyMarginTop"/>
                         <Text id="_IDGenText3" text="Category: {products>category}" class="sapUiTinyMarginTop"/>
-                        <Button id="_IDGenButton" text="Add to Cart" type="Emphasized" press="onAddToCart"/>
+                        <HBox id="_IDGenHBox1" alignItems="Center" class="sapUiTinyMarginTop">
+                            <Button id="_IDGenButton" icon="sap-icon://less" press="onDecreaseProductQuantity" type="Transparent"/>
+                            <Input id="_IDGenInput" value="{products>selectedQuantity}" width="3em" type="Number"  change="onProductQuantityInput" textAlign="Center"/>
+                            <Button id="_IDGenButton2" icon="sap-icon://add" press="onIncreaseProductQuantity" type="Transparent"/>
+                        </HBox>
+                        <Button id="_IDGenButton3" text="Add to Cart"
+                                type="Emphasized"
+                                press="onAddToCart"
+                                class="sapUiTinyMarginTop"/>
                     </VBox>
                 </items>
             </HBox>

@@ -133,6 +133,13 @@
           "target": [
             "TargetOrder"
           ]
+        },
+        {
+          "name": "RoutePay",
+          "pattern": "Pay",
+          "target": [
+            "TargetPay"
+          ]
         }
       ],
       "targets": {
@@ -159,6 +166,10 @@
         "TargetOrder": {
           "id": "Order",
           "name": "Order"
+        },
+        "TargetPay": {
+          "id": "Pay",
+          "name": "Pay"
         }
       }
     },
