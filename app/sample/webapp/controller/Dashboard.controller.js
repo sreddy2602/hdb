@@ -6,16 +6,33 @@ sap.ui.define([
     "use strict";
     return Controller.extend("sample.controller.Dashboard", {
         onInit: function() {
-            var oModel = new JSONModel();
-            var oView = this.getView();
-            oModel.loadData("model/products.json", null, false);
-            // Initialize selectedQuantity for each product
-            var aProducts = oModel.getProperty("/products") || [];
-            aProducts.forEach(function(p) { p.selectedQuantity = 1; });
-            oModel.setProperty("/products", aProducts);
-            oModel.setProperty("/filteredProducts", aProducts);
-            oView.setModel(oModel, "products");
-            this.populateCategories(aProducts);
+            var that = this;
+            // Use the owner component to get the OData model; this is more reliable than getView().getModel()
+            var oODataModel = this.getOwnerComponent().getModel();
+
+            if (!oODataModel) {
+                MessageToast.show("OData model not found. Check manifest.json!");
+                return;
+            }
+
+            // Use OData V4 API to fetch /Products from CAP/HANA
+            var oBinding = oODataModel.bindList("/Products");
+            oBinding.requestContexts().then(function(aContexts) {
+                var aProducts = aContexts.map(function(oContext) {
+                    var p = oContext.getObject();
+                    p.selectedQuantity = 1;
+                    return p;
+                });
+                var oProductsModel = new JSONModel({
+                    products: aProducts,
+                    filteredProducts: aProducts
+                });
+                that.getView().setModel(oProductsModel, "products");
+                that.populateCategories(aProducts);
+            }).catch(function(err) {
+                MessageToast.show("Failed to fetch products from server.");
+                console.error(err);
+            });
         },
 
         populateCategories: function(data) {
@@ -81,7 +98,6 @@ sap.ui.define([
                 MessageToast.show("Added to cart");
             }
             oCart.setProperty("/items", aItems);
-            // Optionally reset product input
             oProduct.selectedQuantity = 1;
             this.getView().getModel("products").refresh(true);
         },
@@ -111,14 +127,17 @@ sap.ui.define([
             var oSelect = this.getView().byId("productCategorySelect");
             if (oSelect) oSelect.setSelectedKey("");
         },
+
         onCart: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("RouteCart");
         },
+
         onOrders: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("RouteOrder");
         },
+
         onLogout: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("RouteLogin");

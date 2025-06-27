@@ -1,6 +1,7 @@
-ID,name,category,price,stock
-550e8400-e29b-41d4-a716-446655440000,Laptop,Electronics,999.99,50
-550e8400-e29b-41d4-a716-446655440001,Smartphone,Electronics,699.99,150
-550e8400-e29b-41d4-a716-446655440002,Desk Chair,Furniture,89.99,200
-550e8400-e29b-41d4-a716-446655440003,Coffee Maker,Appliances,49.99,80
-550e8400-e29b-41d4-a716-446655440004,Book,Books,19.99,300
+ID,NAME,DESCRIPTION,CATEGORY,PRICE,IMAGE
+1,Classic Black Frame,Unisex rectangular black acetate eyeglasses,Spectacles,40.99,https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/black-blue-full-rim-rectangle-lenskart-air-memory-la-e16492-c1-eyeglasses_img_1564_02_02_2024.jpg
+2,Kids' Colorful Frame,Durable and colorful spectacles for children,Spectacles,25.99,https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//h/i/blue-transparent-pink-purple-full-rim-round-kids--5-8-yrs--hooper-flexi-hooper-hp-e15083m-c3-eyeglasses_blue-transparent-pink-purple-full-rim-round-kids-(5-8-yrs)-hooper-flexi-hooper-hp-e15083m-c3-eyeglasses_g_8787_9_21_22_22_march23.jpg.jpg
+3,Cat Eye Women,Fashion cat eye frame for women,Spectacles,49.99,https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//j/o/john-jacobs-jj-e10227-c4-dup-eyeglasses_j_1502_1.jpg
+4,Transparent Frame,Trendy transparent acetate eyeglasses,Spectacles,42.90,https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e14271-c1-eyeglasses_J_2003.jpg
+5,Oversized Square,Bold oversized square spectacles,Spectacles,59.00,https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/peyush-bansal-shark-tank-navy-full-rim-wayfarer-lenskart-hustlr-lb-e14058-h-c34-eyeglasses_g_1238_09_11_2023.jpg
+6,Tortoise Shell Frame,Classic tortoise shell pattern glasses,Spectacles,48.00,https://cdn-images.farfetch-contents.com/19/41/63/85/19416385_43907555_1000.jpg
